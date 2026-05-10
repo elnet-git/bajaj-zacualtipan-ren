@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bajaj Pulsar 135 LS</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body { margin:0; font-family:Arial; background:#111; }
+    model-viewer { width: 100%; height: 70vh; background-color: #e8e8e8; }
+    .btn { width: 90%; margin: 10px 5%; padding: 16px; font-size: 18px; background: #E31E24; color: white; border: none; border-radius: 10px; font-weight: bold; }
+    .btn-whats { background: #25D366; }
+    .info { text-align: center; color: white; padding: 15px; }
+    .precio { color: #FFD700; font-size: 24px; font-weight: bold; margin: 5px 0; }
+    .tag { background: #E31E24; display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 14px; margin-top: 5px; }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <div class="tag">IDEAL PARA REPARTIR</div>
+    <h2>Bajaj Pulsar 135 LS</h2>
+    <p class="precio">Desde $32,999</p>
+    <p>38 km/lt | Súper ahorradora</p>
+  </div>
+  <model-viewer 
+    src="pulsar_135_ls.glb"
+    ar 
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls 
+    auto-rotate
+    shadow-intensity="1"
+    exposure="1.1"
+    scale="0.9 0.9"
+    alt="Bajaj Pulsar 135 LS">
+    <button slot="ar-button" class="btn">📱 VER EN MI COCHERA</button>
+  </model-viewer>
+  <button class="btn btn-whats" onclick="window.open('https://wa.me/5215512345678?text=Hola, vi la Pulsar 135 LS en AR. Quiero cotizar')">
+    COTIZAR POR WHATSAPP
+  </button>
+</body>
+</html
