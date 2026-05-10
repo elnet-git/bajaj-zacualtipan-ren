@@ -3,28 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bajaj Pulsar 135 LS - Bajaj Zacualtipán</title>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <title>Bajaj Pulsar 135 LS - Zacualtipán</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
-        body { margin: 0; font-family: Arial, sans-serif; }
+        body { margin: 0; font-family: Arial, sans-serif; background: #000; }
         .header {
-            position: fixed; top: 0; width: 100%; background: #000;
-            color: white; text-align: center; padding: 15px; z-index: 1000;
+            background: #000; color: white; text-align: center; padding: 15px;
         }
         .tag { background: #e31e24; padding: 4px 12px; border-radius: 20px; font-size: 12px; }
         .price { color: #ffc107; font-size: 22px; font-weight: bold; margin: 5px 0; }
-        .ar-button {
-            position: fixed; top: 140px; left: 50%; transform: translateX(-50%);
-            background: #e31e24; color: white; border: none; padding: 15px 30px;
-            font-size: 16px; font-weight: bold; border-radius: 8px; z-index: 1000;
-            box-shadow: 0 4px 15px rgba(227,30,36,0.4);
+        model-viewer {
+            width: 100%; height: 60vh; background-color: #111;
         }
         .whatsapp {
             position: fixed; bottom: 0; width: 100%; background: #25D366;
             color: white; text-align: center; padding: 18px; font-weight: bold;
             font-size: 16px; z-index: 1000; text-decoration: none; display: block;
         }
+        .instrucciones { color: #ccc; text-align: center; padding: 10px; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -35,34 +31,22 @@
         <div style="font-size: 13px;">38 km/lt | Súper ahorradora</div>
     </div>
 
-    <button class="ar-button" onclick="activateAR()">📱 VER EN MI COCHERA</button>
+    <model-viewer 
+        src="pulsar_135_ls.glb" 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        auto-rotate 
+        shadow-intensity="1"
+        alt="Pulsar 135 LS 3D">
+        <button slot="ar-button" style="background-color: #e31e24; color: white; border: none; padding: 15px 30px; border-radius: 8px; font-size: 16px; font-weight: bold; position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">
+            📱 VER EN MI COCHERA
+        </button>
+    </model-viewer>
+    
+    <div class="instrucciones">Toca la moto para girarla | Pellizca para hacer zoom</div>
 
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false" renderer="colorManagement: true;">
-        <a-assets>
-            <a-asset-item id="moto" src="pulsar_135_ls.glb"></a-asset-item>
-        </a-assets>
-        
-        <a-marker preset="hiro">
-            <a-entity 
-                gltf-model="#moto" 
-                scale="0.6 0.6" 
-                position="0 0 0"
-                rotation="0 0 0"
-                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-            </a-entity>
-        </a-marker>
-        
-        <a-entity camera></a-entity>
-    </a-scene>
-
-    <a href="https://wa.me/5217712345678?text=Hola%2C%20vi%20la%20Pulsar%20135%20LS%20en%20AR%20y%20quiero%20informes" class="whatsapp">
+    <a href="https://wa.me/5217712345678?text=Hola%2C%20vi%20la%20Pulsar%20135%20LS%20en%203D%20y%20quiero%20informes" class="whatsapp">
         COTIZAR POR WHATSAPP
     </a>
-
-    <script>
-        function activateAR() {
-            alert("1. Apunta tu cámara al piso\n2. Mueve lento el celular\n3. Toca la pantalla para colocar la moto");
-        }
-    </script>
 </body>
 </html>
